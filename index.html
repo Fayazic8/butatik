@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Surat dengan TTE Kepala Sekolah</title>
+    <style>
+        /* CSS ini sudah digabung di dalam HTML agar menjadi satu file */
+        @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&family=Arial&display=swap');
+
+        body {
+            background-color: #e0e0e0; /* Warna latar abu-abu agar kertas terlihat menonjol */
+            font-family: 'Times New Roman', Times, serif;
+            color: #000000;
+        }
+
+        .page-container {
+            background-color: #ffffff; /* Warna kertas putih */
+            width: 21cm; /* Ukuran lebar kertas A4 */
+            min-height: 29.7cm; /* Ukuran tinggi kertas A4 */
+            margin: 2cm auto; /* Posisi di tengah layar */
+            padding: 2.5cm 2cm; /* Margin dalam dokumen (atas/bawah, kiri/kanan) */
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Efek bayangan agar seperti kertas asli */
+            box-sizing: border-box;
+        }
+
+        /* --- KOP SURAT --- */
+        .kop-surat {
+            display: flex;
+            align-items: center;
+            border-bottom: 3px solid #000000;
+            padding-bottom: 10px;
+            margin-bottom: 2px;
+        }
+
+        .kop-surat .logo {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .kop-surat .text-kop {
+            text-align: center;
+            flex-grow: 1;
+            line-height: 1.2;
+        }
+
+        .text-kop h1 {
+            font-size: 18pt;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .text-kop h2 {
+            font-size: 20pt;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .text-kop p {
+            font-size: 11pt;
+            margin: 0;
+        }
+        
+        .garis-bawah-kop {
+             border-bottom: 1px solid #000;
+             margin-bottom: 20px;
+        }
+
+        /* --- ISI SURAT --- */
+        .isi-surat {
+            margin-top: 30px;
+        }
+
+        .nomor-surat {
+            text-align: center;
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 20px;
+            font-size: 14pt;
+        }
+        
+        .paragraf {
+            text-align: justify;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-size: 12pt;
+        }
+        
+        .data-siswa {
+            margin-left: 40px;
+            font-size: 12pt;
+            line-height: 1.6;
+        }
+        
+        .penutup {
+            margin-top: 30px;
+        }
+
+        /* --- TANDA TANGAN ELEKTRONIK (TTE) --- */
+        .posisi-tte {
+            display: flex;
+            justify-content: flex-end; /* Posisi TTE di kanan */
+            margin-top: 40px;
+        }
+
+        .tte-container {
+            display: flex;
+            align-items: flex-start; /* Rata atas */
+            width: 450px; /* Lebar area TTE */
+        }
+        
+        .qr-code {
+            flex-shrink: 0; /* Mencegah QR Code mengecil */
+            margin-right: 15px;
+        }
+
+        .qr-code img {
+            width: 100px;
+            height: 100px;
+        }
+        
+        .signature-block {
+            font-size: 12pt;
+            line-height: 1.4;
+        }
+
+        .signature-img {
+            width: 200px; /* Lebar gambar tanda tangan */
+            height: 80px; /* Tinggi gambar tanda tangan */
+            margin-top: -10px;
+            margin-bottom: -10px;
+            margin-left: -5px;
+        }
+        
+        .nama-kepsek {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- ======================= KOP SURAT ======================= -->
+        <header class="kop-surat">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAASFBMVEX///8AAADw8PDo6Oj4+PhISEjV1dVTU1Pj4+N7e3tAQEDGxsYiIiKxsbGcnJyampo4ODjNzc1ra2shISEgICAcHBwqKirc3Nw0NDQlQ23OAAADFUlEQVR4nO3d63aqMBQG4GxtW6tV1fX/f3mJzQ0kgcSNgWyec36s1JtkkjMkbY0hAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgX4nL5SK+5I+c57P6aLl5lchvXOXs6rSjE+d51bvxrL7s+b7I34L85z+nS852rP9s3hX5Lz+fH/b8KOfE81+f8M3I13dPnxe5x4/nS87WjG9k/oY8T35vL6v+3eYfE3/T/P8a+aZ+mS45WzO+3Plr8tvmHxt/0/w/T/0b8n2rS862a/M35v8s/m3zD4+/af5h/B/mP+f/LfLtFm3nZfMvzX+b/Jvmnxn/b5p/uP6H+T/Pfy3y7c+bzsrmn5r/M/k3zT8z/t80/3D9D/N/nv+3yLd1bzkrm39q/s/k3zT/zPh/0/zD9T/M/3n+3yLfdL/lbGz+qfk/k3/T/DPh/03zD9f/MP/n+X+L3FfL53b+vjn3L/r+Z+bfNf/A+X/T/AP1P8z/ef7fIte+bzkbm39q/s/k3zT/zPh/0/zD9T/M/3n+3yLXPm85G5t/av7P5N80/8z4f9P8w/U/zP95/t8i1z5vORubf2r+z+TfNP/M+H/T/MP1P8z/ef7fIte+bzkbm39q/s/k3zT/zPh/0/zD9T/M/3n+3yLXvvO702lHz3vVj+es83aXyG9c5ezq+kfnPM/kL3xM/P43k89v1t6t/WcFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/L8m/8hPz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H9A/pWfMP8fkH/lJ8z/B+Rf+Qnz/wH5V37C/H8g/P8D8s/9z60AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAODW/AOmk8xYjCDBpAAAAABJRU5ErkJggg==" alt="Logo Tut Wuri" class="logo">
+            <div class="text-kop">
+                <h1>PEMERINTAH PROVINSI DAERAH KHUSUS IBUKOTA JAKARTA</h1>
+                <h1>DINAS PENDIDIKAN</h1>
+                <h2>SMA NEGERI 1 CENDEKIA</h2>
+                <p>Jl. Pendidikan No. 1, Cendekia, Jakarta Selatan, Telp (021) 1234567</p>
+            </div>
+        </header>
+        <div class="garis-bawah-kop"></div>
+
+        <!-- ======================= ISI SURAT ======================= -->
+        <main class="isi-surat">
+            <div class="nomor-surat">
+                SURAT KETERANGAN LULUS
+            </div>
+            <p class="paragraf">
+                Yang bertanda tangan di bawah ini, Kepala SMA Negeri 1 Cendekia, dengan ini menerangkan bahwa:
+            </p>
+            
+            <table class="data-siswa">
+                <tr>
+                    <td width="150px">Nama</td>
+                    <td>:</td>
+                    <td><b>ANDINI PUTRI MAHARANI</b></td>
+                </tr>
+                <tr>
+                    <td>Tempat, Tanggal Lahir</td>
+                    <td>:</td>
+                    <td>Jakarta, 15 Mei 2006</td>
+                </tr>
+                <tr>
+                    <td>Nomor Induk Siswa</td>
+                    <td>:</td>
+                    <td>212210089</td>
+                </tr>
+                <tr>
+                    <td>NISN</td>
+                    <td>:</td>
+                    <td>0069871234</td>
+                </tr>
+            </table>
+
+            <p class="paragraf">
+                Berdasarkan hasil Rapat Dewan Guru tentang Penentuan Kelulusan dan mengacu pada kriteria kelulusan yang berlaku, siswa tersebut di atas dinyatakan <strong>LULUS</strong> dari SMA Negeri 1 Cendekia Tahun Pelajaran 2023/2024.
+            </p>
+            
+            <p class="paragraf penutup">
+                Demikian surat keterangan ini dibuat untuk dapat dipergunakan sebagaimana mestinya. Atas perhatian Bapak/Ibu, kami ucapkan terima kasih.
+            </p>
+        </main>
+        
+        <!-- ======================= TANDA TANGAN ELEKTRONIK (TTE) ======================= -->
+        <div class="posisi-tte">
+            <div class="tte-container">
+                <div class="qr-code">
+                    <!-- QR Code ini berisi info verifikasi -->
+                    <img src="data:image/png;base64,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" alt="QR Code Verifikasi">
+                </div>
+                <div class="signature-block">
+                    Kepala SMA Negeri 1 Cendekia,
+                    <br>
+                    <!-- Gambar Tanda Tangan sudah ada di sini -->
+                    <img src="data:image/png;base64,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" alt="Gambar Tanda Tangan" class="signature-img">
+                    <br>
+                    <span class="nama-kepsek">Dr. H. Sutrisno, M.Pd.</span>
+                    <br>
+                    <span>NIP. 196805101995121001</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
