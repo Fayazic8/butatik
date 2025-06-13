@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator TTE Kepala Sekolah</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Memuat library untuk generate QR Code -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Generator Tanda Tangan Elektronik (TTE)</h1>
+            <p>Untuk Kepala Sekolah</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Kolom Input Data -->
+            <div class="input-section">
+                <h2>Langkah 1: Isi Data</h2>
+                <div class="form-group">
+                    <label for="namaKepsek">Nama Lengkap & Gelar</label>
+                    <input type="text" id="namaKepsek" placeholder="Contoh: Drs. Budi Santoso, M.Pd.">
+                </div>
+                <div class="form-group">
+                    <label for="nipKepsek">NIP (Nomor Induk Pegawai)</label>
+                    <input type="text" id="nipKepsek" placeholder="Contoh: 196508171991031004">
+                </div>
+                <div class="form-group">
+                    <label for="namaSekolah">Nama Sekolah</label>
+                    <input type="text" id="namaSekolah" placeholder="Contoh: SMA Negeri 1 Harapan Bangsa">
+                </div>
+                <div class="form-group">
+                    <label for="logoUpload">Upload Logo Sekolah (Opsional)</label>
+                    <input type="file" id="logoUpload" accept="image/png, image/jpeg">
+                </div>
+                
+                <hr>
+
+                <h2>Langkah 2: Tanda Tangan</h2>
+                <div class="signature-pad-container">
+                    <canvas id="signaturePad" width="350" height="150"></canvas>
+                    <button id="clearSignatureBtn">Hapus Tanda Tangan</button>
+                </div>
+            </div>
+
+            <!-- Kolom Preview dan Hasil -->
+            <div class="preview-section">
+                <h2>Langkah 3: Preview & Unduh</h2>
+                <p>Hasil TTE akan muncul di bawah ini.</p>
+                <div class="preview-box">
+                    <canvas id="previewCanvas" width="450" height="200"></canvas>
+                </div>
+                <button id="downloadBtn" class="download-button">Unduh TTE (.png)</button>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Dibuat dengan ❤️ untuk dunia pendidikan.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
